@@ -1,0 +1,27 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  creationTimestamp: null
+  labels:
+    run: busybox
+  name: busybox
+spec:
+  activeDeadlineSeconds: 30 # add this line
+  parallelism: 4
+  completions: 4
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: busybox
+    spec:
+      containers:
+      - args:
+        - /bin/sh
+        - -c
+        - while true; do echo hello; sleep 10;done
+        image: busybox
+        name: busybox
+        resources: {}
+      restartPolicy: OnFailure
+status: {}

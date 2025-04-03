@@ -1,0 +1,21 @@
+livenessProbe:
+      exec:
+        command:
+        - cat
+        - /tmp/healthy
+      initialDelaySeconds: 5
+      periodSeconds: 5
+
+
+livenessProbe:
+     exec:
+       command:
+       - cat
+       - /tmp/healthy
+     initialDelaySeconds: 5
+     periodSeconds: 10
+
+readinessProbe:
+   httpGet:
+      path:
+      port:   
